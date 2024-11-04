@@ -20,6 +20,7 @@ With the router ran with the command `./sr` in the `/router` folder:
 
 The following commands run one after the other:
 
+Ping valid address:
 ```
 mininet> server1 ping -c 3 10.0.1.1
 nohup: appending output to 'nohup.out'
@@ -32,7 +33,7 @@ PING 10.0.1.1 (10.0.1.1) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 34.668/69.990/109.106/30.507 ms
 ```
-
+Ping valid router interface:
 ```
 mininet> server1 ping -c 3 172.64.3.10
 PING 172.64.3.10 (172.64.3.10) 56(84) bytes of data.
@@ -45,6 +46,7 @@ PING 172.64.3.10 (172.64.3.10) 56(84) bytes of data.
 rtt min/avg/max/mdev = 40.199/68.927/83.402/20.313 ms
 ```
 
+Ping invalid address:
 ```
 mininet> server2 ping -c 3 10.0.0.6
 nohup: appending output to 'nohup.out'
@@ -57,6 +59,7 @@ From 172.64.3.1 icmp_seq=3 Destination Net Unreachable
 3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2004ms
 ```
 
+Traceroute valid address:
 ```
 mininet> server1 traceroute client
 traceroute to 10.0.1.100 (10.0.1.100), 30 hops max, 60 byte packets
@@ -66,12 +69,14 @@ traceroute to 10.0.1.100 (10.0.1.100), 30 hops max, 60 byte packets
  4  * 10.0.1.100 (10.0.1.100)  494.715 ms  484.721 ms
 ```
 
+Traceroute valid router interface:
 ```
 mininet> client traceroute 172.64.3.1
 traceroute to 172.64.3.1 (172.64.3.1), 30 hops max, 60 byte packets
  1  10.0.1.1 (10.0.1.1)  24.768 ms  44.770 ms  62.020 ms
 ```
 
+Traceroute valid address (using node name):
 ```
 mininet> server2 traceroute server1
 traceroute to 192.168.2.2 (192.168.2.2), 30 hops max, 60 byte packets
@@ -81,6 +86,7 @@ traceroute to 192.168.2.2 (192.168.2.2), 30 hops max, 60 byte packets
  4  192.168.2.2 (192.168.2.2)  488.941 ms *  481.016 ms
 ```
 
+Valid wget:
 ```
 mininet> client wget http://192.168.2.2
 --2024-10-30 10:41:15--  http://192.168.2.2/
@@ -94,6 +100,7 @@ index.html          100%[===================>]     161  --.-KB/s    in 0s
 2024-10-30 10:41:15 (40.9 MB/s) - 'index.html' saved [161/161]
 ```
 
+Valid wget:
 ```
 mininet> server1 wget http://192.168.2.2
 --2024-10-30 10:41:19--  http://192.168.2.2/
@@ -107,6 +114,7 @@ index.html.9        100%[===================>]     161  --.-KB/s    in 0s
 2024-10-30 10:41:19 (36.4 MB/s) - 'index.html.9' saved [161/161]
 ```
 
+Multiple traceroutes:
 ```
 mininet> server2 traceroute server1
 traceroute to 192.168.2.2 (192.168.2.2), 30 hops max, 60 byte packets
@@ -123,6 +131,8 @@ traceroute to 192.168.2.2 (192.168.2.2), 30 hops max, 60 byte packets
  2  192.168.2.2 (192.168.2.2)  373.738 ms  384.184 ms  394.118 ms
 
 ```
+
+Invalid traceroute address:
 
 ```
 mininet> server2 traceroute 10.0.2.2
