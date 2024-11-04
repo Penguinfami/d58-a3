@@ -2,7 +2,7 @@
 
 The `cs_144_lab3` folder in this github repo contains everything except for the `pox` folder
 
-## Contributor (solo):
+## Contributor:
 
 Name: Christine Zhao
 
