@@ -141,7 +141,7 @@ traceroute to 10.0.2.2 (10.0.2.2), 30 hops max, 60 byte packets
  2  172.64.3.1 (172.64.3.1)  302.697 ms !N  296.058 ms !N  288.696 ms !N
 ```
 
-Which produced the following tcpdump .pcap file:
+Which produced the following combined tcpdump .pcap file:
 
 ```
 reading from file expectedoutput.pcap, link-type EN10MB (Ethernet)
