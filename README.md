@@ -16,7 +16,7 @@ Email: christine.zhao@mail.utoronto.ca
 
 All required functionalities written in the handout should be implemented.
 
-## Tests Run:
+## Example Tests Run
 
 With the router ran with the command `./sr` in the `/router` folder:
 
