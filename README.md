@@ -1,6 +1,6 @@
 # CSCD58 A3
 
-The `/cs_144_lab3` folder contains everything except for the `pox` folder
+The `cs_144_lab3` folder in this github repo contains everything except for the `pox` folder
 
 ## Contributor (solo):
 
