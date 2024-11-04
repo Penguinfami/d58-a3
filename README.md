@@ -16,6 +16,7 @@ All required functionalities written in the handout should be implemented.
 
 ## Tests Run:
 
+The following commands run one after the other:
 ```
 mininet> server1 ping -c 3 10.0.1.1
 nohup: appending output to 'nohup.out'
@@ -27,6 +28,8 @@ PING 10.0.1.1 (10.0.1.1) 56(84) bytes of data.
 --- 10.0.1.1 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 34.668/69.990/109.106/30.507 ms
+```
+```
 mininet> server1 ping -c 3 172.64.3.10
 PING 172.64.3.10 (172.64.3.10) 56(84) bytes of data.
 64 bytes from 172.64.3.10: icmp_seq=1 ttl=63 time=83.4 ms
@@ -36,6 +39,8 @@ PING 172.64.3.10 (172.64.3.10) 56(84) bytes of data.
 --- 172.64.3.10 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2003ms
 rtt min/avg/max/mdev = 40.199/68.927/83.402/20.313 ms
+
+```
 mininet> server2 ping -c 3 10.0.0.6
 nohup: appending output to 'nohup.out'
 PING 10.0.0.6 (10.0.0.6) 56(84) bytes of data.
@@ -45,22 +50,29 @@ From 172.64.3.1 icmp_seq=3 Destination Net Unreachable
 
 --- 10.0.0.6 ping statistics ---
 3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2004ms
-
+```
+```
 mininet> server1 traceroute client
 traceroute to 10.0.1.100 (10.0.1.100), 30 hops max, 60 byte packets
  1  192.168.2.1 (192.168.2.1)  277.829 ms  230.400 ms  215.846 ms
  2  * * *
  3  * * *
  4  * 10.0.1.100 (10.0.1.100)  494.715 ms  484.721 ms
+```
+```
 mininet> client traceroute 172.64.3.1
 traceroute to 172.64.3.1 (172.64.3.1), 30 hops max, 60 byte packets
  1  10.0.1.1 (10.0.1.1)  24.768 ms  44.770 ms  62.020 ms
+```
+```
 mininet> server2 traceroute server1
 traceroute to 192.168.2.2 (192.168.2.2), 30 hops max, 60 byte packets
  1  172.64.3.1 (172.64.3.1)  270.727 ms  270.664 ms  222.503 ms
  2  * * *
  3  * * *
  4  192.168.2.2 (192.168.2.2)  488.941 ms *  481.016 ms
+```
+```
 mininet> client wget http://192.168.2.2
 --2024-10-30 10:41:15--  http://192.168.2.2/
 Connecting to 192.168.2.2:80... connected.
@@ -71,7 +83,8 @@ Saving to: 'index.html'
 index.html          100%[===================>]     161  --.-KB/s    in 0s
 
 2024-10-30 10:41:15 (40.9 MB/s) - 'index.html' saved [161/161]
-
+```
+```
 mininet> server1 wget http://192.168.2.2
 --2024-10-30 10:41:19--  http://192.168.2.2/
 Connecting to 192.168.2.2:80... connected.
@@ -82,13 +95,16 @@ Saving to: 'index.html.9'
 index.html.9        100%[===================>]     161  --.-KB/s    in 0s
 
 2024-10-30 10:41:19 (36.4 MB/s) - 'index.html.9' saved [161/161]
-
+```
+```
 mininet> server2 traceroute server1
 traceroute to 192.168.2.2 (192.168.2.2), 30 hops max, 60 byte packets
  1  172.64.3.1 (172.64.3.1)  271.784 ms  259.041 ms  243.241 ms
  2  * * *
  3  * * *
  4  * 192.168.2.2 (192.168.2.2)  506.623 ms  498.624 ms
+```
+```
 mininet> server2 traceroute server1
 traceroute to 192.168.2.2 (192.168.2.2), 30 hops max, 60 byte packets
  1  172.64.3.1 (172.64.3.1)  65.569 ms  110.462 ms  110.482 ms
