@@ -19,6 +19,7 @@ All required functionalities written in the handout should be implemented.
 With the router ran with the command `./sr` in the `/router` folder:
 
 The following commands run one after the other:
+
 ```
 mininet> server1 ping -c 3 10.0.1.1
 nohup: appending output to 'nohup.out'
