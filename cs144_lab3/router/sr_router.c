@@ -81,7 +81,6 @@ void longest_prefix_match(struct sr_rt * table, uint32_t ip, uint32_t *longest_m
     cur = cur->next;
   }
 }
-int nextId = 1;
 
 uint8_t * send_ICMP_message(int send, struct sr_instance *sr, unsigned int len, const char*iface, sr_icmp_t3_hdr_t * icmp_payload, uint8_t *payload, uint16_t id, uint8_t tos, uint32_t src, uint32_t dst, uint8_t srcMAC[ETHER_ADDR_LEN], 
   uint8_t hostMAC[ETHER_ADDR_LEN], uint8_t type, uint8_t code);
