@@ -123,6 +123,13 @@ traceroute to 192.168.2.2 (192.168.2.2), 30 hops max, 60 byte packets
 
 ```
 
+```
+mininet> server2 traceroute 10.0.2.2
+traceroute to 10.0.2.2 (10.0.2.2), 30 hops max, 60 byte packets
+ 1  172.64.3.1 (172.64.3.1)  358.234 ms  339.656 ms  312.936 ms
+ 2  172.64.3.1 (172.64.3.1)  302.697 ms !N  296.058 ms !N  288.696 ms !N
+```
+
 Which produced the following tcpdump .pcap file:
 
 ```
@@ -435,4 +442,59 @@ reading from file expectedoutput.pcap, link-type EN10MB (Ethernet)
 10:41:33.488459 IP 192.168.2.2 > 172.64.3.10: ICMP 192.168.2.2 udp port 33441 unreachable, length 68
 10:41:33.488462 IP 192.168.2.2 > 172.64.3.10: ICMP 192.168.2.2 udp port 33442 unreachable, length 68
 10:41:33.488465 IP 192.168.2.2 > 172.64.3.10: ICMP 192.168.2.2 udp port 33442 unreachable, length 68
+10:47:52.335478 IP 172.64.3.10.53320 > 10.0.2.2.33434: UDP, length 32
+10:47:52.335537 ARP, Request who-has 172.64.3.10 (Broadcast) tell 172.64.3.1, length 28
+10:47:52.351779 IP 172.64.3.10.58473 > 10.0.2.2.33435: UDP, length 32
+10:47:52.369937 IP 172.64.3.10.42115 > 10.0.2.2.33436: UDP, length 32
+10:47:52.375043 IP 172.64.3.10.55831 > 10.0.2.2.33437: UDP, length 32
+10:47:52.375086 ARP, Request who-has 10.0.2.2 (Broadcast) tell 172.64.3.1, length 28
+10:47:52.390865 IP 172.64.3.10.56844 > 10.0.2.2.33438: UDP, length 32
+10:47:52.431609 IP 172.64.3.10.49585 > 10.0.2.2.33439: UDP, length 32
+10:47:52.431645 IP 172.64.3.10.40527 > 10.0.2.2.33440: UDP, length 32
+10:47:52.431651 IP 172.64.3.10.56464 > 10.0.2.2.33441: UDP, length 32
+10:47:52.433587 IP 172.64.3.10.45452 > 10.0.2.2.33442: UDP, length 32
+10:47:52.439049 IP 172.64.3.10.34732 > 10.0.2.2.33443: UDP, length 32
+10:47:52.456324 IP 172.64.3.10.57138 > 10.0.2.2.33444: UDP, length 32
+10:47:52.461154 IP 172.64.3.10.49263 > 10.0.2.2.33445: UDP, length 32
+10:47:52.476661 IP 172.64.3.10.59512 > 10.0.2.2.33446: UDP, length 32
+10:47:52.481216 IP 172.64.3.10.33228 > 10.0.2.2.33447: UDP, length 32
+10:47:52.498223 IP 172.64.3.10.35309 > 10.0.2.2.33448: UDP, length 32
+10:47:52.504019 IP 172.64.3.10.42911 > 10.0.2.2.33449: UDP, length 32
+10:47:52.519087 ARP, Reply 172.64.3.10 is-at 36:52:e8:f2:55:88 (oui Unknown), length 28
+10:47:52.519140 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519149 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519153 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519155 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519158 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519160 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519162 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519164 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519167 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519169 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519171 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519173 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519175 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519178 IP 172.64.3.1 > 172.64.3.10: ICMP time exceeded in-transit, length 36
+10:47:52.519181 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519183 IP 172.64.3.1 > 172.64.3.10: ICMP time exceeded in-transit, length 36
+10:47:52.519185 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.519188 IP 172.64.3.1 > 172.64.3.10: ICMP time exceeded in-transit, length 36
+10:47:52.519190 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.601088 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601166 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601176 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601180 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601182 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601185 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601188 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601190 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601195 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601199 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601211 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601213 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.601216 IP 172.64.3.1 > 172.64.3.10: ICMP host 10.0.2.2 unreachable, length 36
+10:47:52.798310 IP 172.64.3.10.34550 > 10.0.2.2.33450: UDP, length 32
+10:47:52.798368 IP 172.64.3.1 > 172.64.3.10: ICMP net 10.0.2.2 unreachable, length 36
+10:47:52.798380 ARP, Request who-has 10.0.2.2 (Broadcast) tell 172.64.3.1, length 28
+10:47:53.601329 ARP, Request who-has 10.0.2.2 (Broadcast) tell 172.64.3.1, length 28
 ```
